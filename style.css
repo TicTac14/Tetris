@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,900&family=Poppins:wght@100;200&family=Press+Start+2P&family=Roboto:wght@100&display=swap');
+
+* {
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(88, 86, 86);
+}
+
+.gameContainer{
+    width: 100%;
+    height: 100%;
+}
+#scoreContainer {
+    width: 150px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #4a85f3;
+    border-radius: 10px 10px 10px 10px;
+    margin-right: 10px
+} 
+
+#currentTime{
+    font-family: "poppins";
+}
+
+#score {
+    font-size: 1.25rem;
+    font-family: "Montserrat";
+    color: white;
+    font-weight: bolder;
+}
+
+.wrapper {
+    width: 350px;
+    height: 700px;
+
+}
+
