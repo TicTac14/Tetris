@@ -1,4 +1,6 @@
 const gameContainer = document.getElementById('gameContainer');
+const scoreValEle = document.getElementById('scoreVal');
+const timeEle = document.getElementById('currentTime');
 var canvas;
 const blockSize = 35;
 const pieces = [];
@@ -6,6 +8,7 @@ const blocks = [];
 var backgroundOpacity = 255;
 var pieceSpeed = 20;
 var piece;
+var score = 0;
 
 function setup(){
     canvas = createCanvas(
@@ -41,14 +44,12 @@ function draw(){
         pieces.pop();
     };
 
-
-    
-
     if (getFilledRows()){
         removeBlocks(getFilledRows());
     }
 
-    
+    updateTime();
+    updateScore();
 
 }
 
@@ -66,6 +67,8 @@ function removeBlocks(arr){
             blocks[i].updateVariables();
         }
     }
+
+    score += 125;
     
 }
 
@@ -102,6 +105,7 @@ function keyPressed(){
         activePiece.moveLeft();
     }else if (key == "ArrowDown"){
         pieceSpeed = 4; // gets faster :)
+
         backgroundOpacity = 50;
     }
 }
@@ -136,4 +140,17 @@ function getFilledRows(){
     return null;
 
 
+}
+
+function updateTime(){
+    const time = new Date();
+    const hour = Number(time.getHours());
+    const mins = time.getMinutes();
+    const secs = time.getSeconds();
+    const filteredHour = hour <= 12 ? hour : hour - 12;
+    const PM_AM = hour <= 12 ?  "AM": "PM";
+    timeEle.innerHTML = `${filteredHour} : ${mins} : ${secs}  ${PM_AM}`;
+}
+function updateScore(){
+    scoreValEle.innerHTML = String(score);
 }

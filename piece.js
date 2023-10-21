@@ -92,25 +92,6 @@ class Piece {
     hitBoundaries(){
         const shape = this.shapes[this.shapeType];
 
-        // for (let i = 0; i < 4; i++){
-        //     //do for each block in this piece
-        //     for (let j = 0; j < pieces.length-1; j++){
-        //         // check all other pieces
-        //         const curPiece = pieces[j].shapes[pieces[j].shapeType]
-        //         for (let n = 0; n < curPiece.length; n++){
-        //             //check each block in that piece
-        //             if (curPiece[n].topLeftCorner.x == shape[i].bottomLeftCorner.x
-        //                 && curPiece[n].topLeftCorner.y == shape[i].bottomLeftCorner.y){
-        //                 return true;
-        //             }
-        //         }
-        //     }
-
-        //     if (shape[i].bottomLeftCorner.y == height){
-        //         return true;
-        //     }
-        // }
-
         for (let i = 0; i < shape.length; i++){
             for (let j = 0; j < blocks.length; j++){
                 const curBlock = blocks[j];
@@ -147,6 +128,9 @@ class Piece {
         if (frameCount % pieceSpeed == 0 && this.isActive){
             this.moveDown();
             this.rotationPoint.y += blockSize;
+            if (pieceSpeed == 4){
+                score += 1
+            }
         }
         
         if (this.hitBoundaries()){
